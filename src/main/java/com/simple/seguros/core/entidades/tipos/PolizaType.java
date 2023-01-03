@@ -1,4 +1,4 @@
-package com.simple.seguros.mvc.entidades.tipos;
+package com.simple.seguros.core.entidades.tipos;
 /*
  * Tipos de Poliza disponibles a en la aseguradora
  */

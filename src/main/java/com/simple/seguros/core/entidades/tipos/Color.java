@@ -1,4 +1,4 @@
-package com.simple.seguros.mvc.entidades.tipos;
+package com.simple.seguros.core.entidades.tipos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,15 +8,16 @@ import javax.persistence.Id;
 
 import lombok.Data;
 /*
- * Esta clase representa las categorias de vehiculos que se an registrado en el sistema
+ * Esta entidad representa todos los colores registrados para vehiculos
  */
-@Data
 @Entity
-public class ClaseVehiculo {
+@Data
+public class Color {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
     @Column(nullable = false,length = 40,unique = true)
     private String nombre;
+    private boolean habilitado;
 }

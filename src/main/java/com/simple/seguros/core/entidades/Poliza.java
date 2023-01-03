@@ -1,23 +1,29 @@
-package com.simple.seguros.mvc.entidades;
+package com.simple.seguros.core.entidades;
 
+import java.sql.Date;
 import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 
 import lombok.Data;
 
 @Data
 @Entity
-public class Ubicacion {
-    
+public class Poliza {
     @Id
     private String uuid;
-    private String direccion;
-    private String ciudad;
-    private String barrio;
-    private String pais;
+    
+    @OneToOne
+    @JoinColumn(name = "vehiculoId",nullable = false)
+    private Vehiculo vehiculo;
+    private double valor;
+    private Date creacion;
+    private Date actualizacion;
+    private boolean habilitado;
 
     /*
      * Metodo de control para asegurar la existencia de uuid unicas en todos los registros
@@ -29,5 +35,5 @@ public class Ubicacion {
             this.uuid = UUID.randomUUID().toString().replace("-", "");
         }
     }
-
+    
 }

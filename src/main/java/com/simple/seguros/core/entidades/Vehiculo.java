@@ -1,7 +1,9 @@
-package com.simple.seguros.mvc.entidades;
+package com.simple.seguros.core.entidades;
 
+import java.sql.Date;
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -9,9 +11,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 
-import com.simple.seguros.mvc.entidades.tipos.ClaseVehiculo;
-import com.simple.seguros.mvc.entidades.tipos.Color;
-import com.simple.seguros.mvc.entidades.tipos.Combustible;
+import com.simple.seguros.core.entidades.tipos.ClaseVehiculo;
+import com.simple.seguros.core.entidades.tipos.Color;
+import com.simple.seguros.core.entidades.tipos.Combustible;
+import com.simple.seguros.core.entidades.tipos.ServicioType;
 
 import lombok.Data;
 /*
@@ -23,16 +26,25 @@ public class Vehiculo {
 
     @Id
     private String uuid;
+    @Column(length = 6,nullable = false,unique = true)
     private String placa;
+    @Column(length = 20,nullable = false)
     private String marca;
+    @Column(length = 20,nullable = false)
     private String linea;
+    @Column(length = 40,nullable = false,unique = true)
     private String motor;
+    @Column(length = 40,nullable = false,unique = true)
     private String chasis;
-    private String servicio;
+    @Column(nullable = false)
+    private ServicioType servicio;
 
     private int capacidad;
     private int modelo;
     private double cilindrada;
+    private Date creacion;
+    private Date actualizacion;
+    private boolean habilitado;
 
     @ManyToOne
     @JoinColumn(name = "colorId",nullable = false)

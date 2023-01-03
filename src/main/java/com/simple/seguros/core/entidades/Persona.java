@@ -1,8 +1,10 @@
-package com.simple.seguros.mvc.entidades;
+package com.simple.seguros.core.entidades;
 
+import java.sql.Date;
 import java.util.Set;
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -20,12 +22,21 @@ public class Persona {
 
     @Id
     private String uuid;
+    @Column(unique = true)
     private Integer cedula;
+    @Column(length = 40,nullable = false)
     private String primerNombre;
+    @Column(length = 40,nullable = false)
     private String segundoNombre;
+    @Column(length = 40,nullable = false)
     private String primerApellido;
+    @Column(length = 40,nullable = false)
     private String segundoApellido;
+    @Column(unique = true,nullable = false)
     private Integer telefono;
+    private Date creacion;
+    private Date actualizacion;
+    private boolean habilitado;
 
     @OneToOne
     @JoinColumn(name = "ubicacionId",nullable = false)
