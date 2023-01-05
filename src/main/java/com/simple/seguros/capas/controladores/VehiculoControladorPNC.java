@@ -1,4 +1,4 @@
-package com.simple.seguros.mvc.controlador;
+package com.simple.seguros.capas.controladores;
 
 import java.util.Map;
 
@@ -11,14 +11,13 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simple.seguros.core.entidades.tipos.Mensajes;
-
+import com.simple.seguros.core.Mensajes;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
-@RequestMapping("/mvc/vehiculos")
-public class VehiculoControlador {
+@RequestMapping("/pnc/vehiculos")
+public class VehiculoControladorPNC{
 
     /*
      * Obtenemos paginacion de vehiculos segun el resultado de la busqueda
@@ -53,9 +52,9 @@ public class VehiculoControlador {
     /*
      * Actualizamos informacion de Vehiculo
      */
-    @PutMapping("/{id}")
-    public String updatePersona(@PathVariable String id){
-        log.debug(Mensajes.Vehiculo.Busqueda.ID,id);
+    @PutMapping()
+    public String updatePersona(){
+        log.debug(Mensajes.Vehiculo.Busqueda.ALL);
         return "Actualizamos informacion de vehiculo";
     }
 

@@ -1,4 +1,4 @@
-package com.simple.seguros.mvc.controlador;
+package com.simple.seguros.capas.controladores;
 
 import java.util.Map;
 
@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simple.seguros.core.entidades.tipos.Mensajes;
+import com.simple.seguros.core.Mensajes;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
-@RequestMapping("/mvc/polizas")
-public class PolizaControlador {
+@RequestMapping("/pnc/polizas")
+public class PolizaControladorPNC{
 
     /*
      * Obtenemos paginacion de polizas segun el resultado de la busqueda
@@ -47,10 +47,10 @@ public class PolizaControlador {
         return "Creamos poliza";
     }
 
-    @PutMapping("/{id}")
-    public String updatePoliza(@PathVariable String id){
-        log.debug(Mensajes.Poliza.Busqueda.ID,id);
-        return "Actualizamos informacion de poliza";
+    @PutMapping()
+    public String updatePoliza(){
+        log.debug(Mensajes.Poliza.Busqueda.ALL);
+        return "Actualizamos informacion de polizas";
     }
 
     @DeleteMapping("/{id}")
